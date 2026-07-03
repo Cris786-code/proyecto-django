@@ -20,7 +20,6 @@ from django.urls import path
 from django.conf import settings
 from registros import views as views_registros 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views_registros.registros, name='principal'),
@@ -28,7 +27,8 @@ urlpatterns = [
     path('contacto/', views_registros.registrar, name='contacto'),
     path('registrar/', views_registros.registrar, name='registrar'),
     path('formulario/', views.formulario, name='formulario'),
-    path('ejemplo/', views.ejemplo, name='ejemplo')
+    path('ejemplo/', views.ejemplo, name='ejemplo'),
+    # path('consultarComentario/', views_registros.consultarComentario, name='consultarComentario'),
 ]
 
 if settings.DEBUG:

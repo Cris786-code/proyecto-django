@@ -1,7 +1,5 @@
-from urllib import request
-
 from django.shortcuts import render
-from .models import Alumnos
+from .models import Alumnos, ComentarioContacto
 from .forms import ComentarioContactoForm
 
 def registros(request):
@@ -13,10 +11,13 @@ def registrar(request):
         form = ComentarioContactoForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, "registros/contacto.html")
+            comentarios = ComentarioContacto.objects.all()
+            return render(request, "registros/consultarComentario.html", {'comentarios': comentarios})
     
     form = ComentarioContactoForm()
     return render(request, "registros/contacto.html", {'form': form})
+
+
 
 def contacto(request):
     return render(request, "registros/contacto.html")

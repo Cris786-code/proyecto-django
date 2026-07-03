@@ -29,6 +29,8 @@ urlpatterns = [
     path('formulario/', views.formulario, name='formulario'),
     path('ejemplo/', views.ejemplo, name='ejemplo'),
     path('consultarComentario/', views_registros.consultarComentario, name='consultarComentario'),
+    path('comentario/editar/<int:id>/', views_registros.editarComentario, name='editarComentario'),
+    path('comentario/eliminar/<int:id>/', views_registros.eliminarComentario, name='eliminarComentario'),
 ]
 
 if settings.DEBUG:

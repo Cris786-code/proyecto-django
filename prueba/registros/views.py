@@ -18,6 +18,11 @@ def registrar(request):
     return render(request, "registros/contacto.html", {'form': form})
 
 
+def consultarComentario(request):
+    comentarios = ComentarioContacto.objects.all()
+    return render(request, "registros/consultarComentario.html", {'comentarios': comentarios})
+
+
 
 def contacto(request):
     return render(request, "registros/contacto.html")

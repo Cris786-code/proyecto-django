@@ -1,0 +1,74 @@
+{% extends "inicio/encabezado.html" %}
+
+{%block titulo%}Consultas{% endblock %}
+
+{% block contenido %}
+
+<!-- Contenido Principal-->
+	 	<!-- Tabla de Alumnos -->
+		{% if alumnos %}
+		 <table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Foto</th>
+					<th>Matricula</th>
+					<th>Nombre</th>
+					<th>Carrera</th>
+					<th>Turno</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for alumno in alumnos %}
+				<tr>
+					<td class="text-center">
+						{% if alumno.imagen %}
+							<img src="{{ alumno.imagen.url }}" alt="" class="img-media">
+						{% else %}
+							<span class="text-muted">Sin foto</span>
+						{% endif %}
+					</td>
+					<td class="text-semibold">{{ alumno.matricula }}</td>
+					<td class="muted">{{ alumno.nombre }}</td>
+					<td class="muted">{{ alumno.carrera }}</td>
+					<td class="muted">{{ alumno.turno }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		 </table>
+		{% elif comentarios %}
+		 <table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Usuario / Alumno</th>
+					<th>Comentario</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for comentario in comentarios %}
+				<tr>
+					<td class="text-semibold">
+						{% if comentario.usuario %}
+							{{ comentario.usuario }}
+						{% else %}
+							{{ comentario.alumno.nombre }}
+						{% endif %}
+					</td>
+					<td class="muted">
+						{% if comentario.mensaje %}
+							{{ comentario.mensaje }}
+						{% else %}
+							{{ comentario.coment|safe }}
+						{% endif %}
+					</td>
+					<td class="muted">{{ comentario.created }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		 </table>
+		{% else %}
+		 <p class="text-muted">No hay resultados para mostrar.</p>
+		{% endif %}
+		<!-- /Contenido Principal-->
+
+{% endblock %}

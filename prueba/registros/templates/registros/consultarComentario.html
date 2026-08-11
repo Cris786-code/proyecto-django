@@ -34,7 +34,7 @@
                     <tr>
                         <td>{{ comentario.usuario }}</td>
                         <td>{{ comentario.mensaje }}</td>
-                        <td class="text-center"><a href="{% url 'editarComentario' comentario.id %}" class="btn btn-xs btn-primary">Editar</a></td>
+                        <td class="text-center"><a href="{% url 'ConsultaIndividual' comentario.id %}" class="btn btn-xs btn-primary">Editar</a></td>
                         <td class="text-center"><a href="{% url 'eliminarComentario' comentario.id %}" class="btn btn-xs btn-danger">Eliminar</a></td>
                     </tr>
                     {% empty %}

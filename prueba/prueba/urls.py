@@ -1,19 +1,3 @@
-"""
-URL configuration for prueba project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from inicio import views
 from django.contrib import admin
 from django.urls import path
@@ -27,10 +11,25 @@ urlpatterns = [
     path('contacto/', views_registros.registrar, name='contacto'),
     path('registrar/', views_registros.registrar, name='registrar'),
     path('formulario/', views.formulario, name='formulario'),
-    path('ejemplo/', views.ejemplo, name='ejemplo'),
     path('consultarComentario/', views_registros.consultarComentario, name='consultarComentario'),
-    path('comentario/editar/<int:id>/', views_registros.editarComentario, name='editarComentario'),
+    path('formEditarComentario/<int:id>/', views_registros.consultarComentarioIndividual, name='ConsultaIndividual'),
+    path('editarComentario/<int:id>/', views_registros.editarComentarioContacto, name='Editar'),
     path('comentario/eliminar/<int:id>/', views_registros.eliminarComentario, name='eliminarComentario'),
+    path('consultas/', views.consultas, name='consultas'),
+    path('consultas1/', views.consultar1, name='consultas1'),
+    path('consultas2/', views.consultar2, name='consultas2'),
+    path('consultas3/', views.consultar3, name='consultas3'),
+    path('consultas4/', views.consultar4, name='consultas4'),
+    path('consultas5/', views.consultar5, name='consultas5'),
+    path('consultas6/', views.consultar6, name='consultas6'),
+    path('consultas7/', views.consultar7, name='consultas7'),
+    path('consultas8/', views.consultar8, name='consultas8'),
+    path('consultasSQL1/', views.consultasSQL1, name='consultasSQL1'),
+    path('consultasSQL2/', views.consultasSQL2, name='consultasSQL2'),
+    path('consultasSQL3/', views.consultasSQL3, name='consultasSQL3'),
+    path('consultasSQL4/', views.consultasSQL4, name='consultasSQL4'),
+    path('consultasSQL5/', views.consultasSQL5, name='consultasSQL5'),
+    path ('subir', views_registros.archivos, name='Subir'),
 ]
 
 if settings.DEBUG:

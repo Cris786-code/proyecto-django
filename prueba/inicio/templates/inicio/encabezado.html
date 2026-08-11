@@ -73,11 +73,13 @@
 
         <div class="sidebar-content">
             <ul class="navigation">
-                <li><a href="{% url 'principal' %}">Home</a></li>
+                <li><a href="{% url 'principal' %}">Principal</a></li>
                 <li><a href="{% url 'nombre' %}">Nombre</a></li>
                 <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'consultarComentario' %}">Consultar Comentarios</a></li>
                 <li><a href="{% url 'formulario' %}">Formulario</a></li>
-                <li><a href="{% url 'ejemplo' %}">Ejemplo</a></li>
+                <li><a href="{% url 'consultas' %}">Consultas</a></li>
+
             </ul>
         </div>
     </div>
@@ -106,6 +108,12 @@
             <li class="active">Página</li>
         </ul>
     </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
 
     <!-- Contenido de la página -->
     {% block contenido %}
